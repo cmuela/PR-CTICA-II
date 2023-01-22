@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### Selecciono el conjunto de datos que representaré en una visualización con la herramienta Flourish. 
 Los datos corresponden a la encuesta de opinión "Baròmetre" realizada por el "Centre d'Estudis d'Opinió (CEO)" 
-en el periodo de 27 de septiembre al 21 de octubre de 2022. Mi objetivo es mostrar la opinión sociopolítica de los 
+en el periodo del 27 de septiembre al 21 de octubre de 2022. Mi objetivo es mostrar la opinión sociopolítica de los 
 jóvenes en Cataluña (hasta 40 años) teniendo en cuenta variables como el sexo y el sentimiento de discriminación 
 por cuestión de género. Esto, teniendo en cuenta el actual contexto de pospandemia, el conflicto en Ucrania 
 y las próximas elecciones municipales que se celebran este año 2023.
