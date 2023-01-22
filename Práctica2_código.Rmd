@@ -1,0 +1,183 @@
+---
+title: "PRÁCTICA II CÓDIGO"
+author: "Caroline Muela Garcia"
+date: "2023-01-15"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## PRÁCTICA II: 
+
+### Selecciono el conjunto de datos que representaré en una visualización con la herramienta Flourish. Los datos corresponden a la encuesta de opinión "Baròmetre" realizada por el "Centre d'Estudis d'Opinió (CEO)" en el periodo de 27 de septiembre al 21 de octubre de 2022. Mi objetivo es mostrar la opinión sociopolítica de los jóvenes en Cataluña (hasta 40 años) teniendo en cuenta variables como el sexo y el sentimiento de discriminación por cuestión de género. Esto, teniendo en cuenta el actual contexto de pospandemia, el conflicto en Ucrania y las próximas elecciones municipales que se celebran este año 2023.
+
+```{r}
+# Carga el archivo y lo guarda en "Datos"
+datos<-read.csv("Barometre2022", sep = ";")
+
+# Selecciono la población jóven (hasta 40 años)
+datos1<-datos[datos$ENQUESTADOR_EDAT<40,]
+```
+
+
+```{r}
+# Selecciono los datos de las mujeres
+mujeres<-datos1[datos1$GENERE== "Dona",]
+
+# Selecciono los datos de los hombres
+hombres<-datos1[datos1$GENERE== "Home",]
+
+# Selecciono los datos de las personas que han sido discriminadas por cuestión de género
+discriminado<-datos1[datos1$RAO_DISCRIMINAT_1== "Pel seu gènere",]
+
+
+# Selecciono los datos de las perosonas que no han sido discriminadas por cuestión de género
+no_discriminado<-datos1[datos1$RAO_DISCRIMINAT_1!= "Pel seu gènere",]
+```
+
+
+### Valoración de la situación económica por sexo y discriminación de género. La escala de valoración es: "Buena", "Mala" "Muy Mala" "Ni buena ni mala".
+
+```{r}
+# Valoración de la situación económica: Mujeres
+
+tabla_mujeres<-table(mujeres$SIT_ECO_CAT)
+proporcion<-round(prop.table(tabla_mujeres)*100, digits=1)
+proporcion
+```
+
+
+```{r}
+# Valoración de la situación económica: Hombres
+tabla_hombres<-table(hombres$SIT_ECO_CAT)
+proporcion<-round(prop.table(tabla_hombres)*100, digits=1)
+proporcion
+```
+
+
+```{r}
+# Valoración de la situación económica: Personas discriminadas por cuestión de género
+tabla_discriminado<-table(discriminado$SIT_ECO_CAT)
+proporcion<-round(prop.table(tabla_discriminado)*100, digits=1)
+proporcion
+```
+
+```{r}
+# Valoración de la situación económica: Personas no discriminadas por cuestión de género
+tabla_discriminado<-table(no_discriminado$SIT_ECO_CAT)
+proporcion<-round(prop.table(tabla_discriminado)*100, digits=1)
+proporcion
+```
+
+# Valoración de la amenaça que supone para su vida el conflicto en Ucrania donde 10 es "Amenaça total" i 0 "Ninguna amenaça"
+
+```{r}
+# Valoración de la amenaça que supone el conflicto en Ucrania: Mujeres
+
+tabla_mujeres<-table(mujeres$AMENACA_GUERRA_UCRAINA_0_10)
+proporcion<-round(prop.table(tabla_mujeres)*100, digits=1)
+proporcion
+```
+
+```{r}
+# Valoración de la amenaça que supone el conflicto en Ucrania: Hombres
+tabla_hombres<-table(hombres$AMENACA_GUERRA_UCRAINA_0_10)
+proporcion<-round(prop.table(tabla_hombres)*100, digits=1)
+proporcion
+```
+
+
+```{r}
+# Valoración de la amenaça que supone el conflicto en Ucrania: Personas discriminadas por cuestión de género
+tabla_discriminado<-table(discriminado$AMENACA_GUERRA_UCRAINA_0_10)
+proporcion<-round(prop.table(tabla_discriminado)*100, digits=1)
+proporcion
+```
+
+```{r}
+# Valoración de la amenaça que supone el conflicto en Ucrania: Personas no discriminadas por cuestión de género
+tabla_discriminado<-table(no_discriminado$AMENACA_GUERRA_UCRAINA_0_10)
+proporcion<-round(prop.table(tabla_discriminado)*100, digits=1)
+proporcion
+```
+
+
+# Valoración de la amenaça que supone para su vida las pandemias donde 10 es "Amenaça total" i 0 "Ninguna amenaça"
+
+```{r}
+# Valoración de la amenaça que suponen las pandemias: Mujeres
+tabla_mujeres<-table(mujeres$AMENACA_EPIDEMIES_0_10)
+proporcion<-round(prop.table(tabla_mujeres)*100, digits=1)
+proporcion
+```
+
+```{r}
+# Valoración de la amenaça que suponen las pandemias: Hombres
+tabla_hombres<-table(hombres$AMENACA_EPIDEMIES_0_10)
+proporcion<-round(prop.table(tabla_hombres)*100, digits=1)
+proporcion
+```
+
+
+```{r}
+# Valoración de la amenaça que suponen las pandemias: Personas discriminadas por cuestión de género
+tabla_discriminado<-table(discriminado$AMENACA_EPIDEMIES_0_10)
+proporcion<-round(prop.table(tabla_discriminado)*100, digits=1)
+proporcion
+```
+
+```{r}
+# Valoración de la amenaça que suponen las pandemias: Personas no discriminadas por cuestión de género
+tabla_discriminado<-table(no_discriminado$AMENACA_EPIDEMIES_0_10)
+proporcion<-round(prop.table(tabla_discriminado)*100, digits=1)
+proporcion
+```
+
+
+## Posición en la escala ideológia (0-Extrema izquierda i 10-Extrema derecha)
+```{r}
+# Posicionamiento ideológico: Mujeres
+tabla_mujeres<-table(mujeres$IDEOL_0_10)
+proporcion<-round(prop.table(tabla_mujeres)*100, digits=1)
+proporcion
+```
+
+```{r}
+# Posicionamiento ideológico: Hombres
+tabla_hombres<-table(hombres$IDEOL_0_10)
+proporcion<-round(prop.table(tabla_hombres)*100, digits=1)
+proporcion
+```
+
+
+```{r}
+# Posicionamiento ideológico: Personas discriminadas por cuestión de género
+tabla_discriminado<-table(discriminado$IDEOL_0_10)
+proporcion<-round(prop.table(tabla_discriminado)*100, digits=1)
+proporcion
+```
+
+```{r}
+# Posicionamiento ideológico: Personas no discriminadas por cuestión de género
+tabla_discriminado<-table(no_discriminado$IDEOL_0_10)
+proporcion<-round(prop.table(tabla_discriminado)*100, digits=1)
+proporcion
+```
+
+# Intención de voto
+
+```{r}
+# Intención de voto: Personas discriminadas por cuestión de género
+tabla_discriminado<-table(discriminado$INT_PARLAMENT_VOT)
+proporcion<-round(prop.table(tabla_discriminado)*100, digits=1)
+proporcion
+```
+
+```{r}
+# Intención de voto: Personas no discriminadas por cuestión de género
+tabla_discriminado<-table(no_discriminado$INT_PARLAMENT_VOT)
+proporcion<-round(prop.table(tabla_discriminado)*100, digits=1)
+proporcion
+```
