@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## PRÁCTICA II: 
+## PRÁCTICA II: ESTUDIO DE LA VALORACIÓN POLÍTICA DE LOS JÓVENES EN CATALUNYA POR SEXO Y SENTIMIENTO DE DISCRIMINACIÓN POR GÉNERO
 
 ### Selecciono el conjunto de datos que representaré en una visualización con la herramienta Flourish. 
 Los datos corresponden a la encuesta de opinión "Baròmetre" realizada por el "Centre d'Estudis d'Opinió (CEO)" 
@@ -19,13 +19,12 @@ por cuestión de género. Esto, teniendo en cuenta el actual contexto de pospand
 y las próximas elecciones municipales que se celebran este año 2023.
 
 ```{r}
-# Carga el archivo y lo guarda en "Datos"
+# Carga el archivo y lo guarda en "datos"
 datos<-read.csv("Barometre2022", sep = ";")
 
 # Selecciono la población jóven (hasta 40 años)
 datos1<-datos[datos$ENQUESTADOR_EDAT<40,]
 ```
-
 
 ```{r}
 # Selecciono los datos de las mujeres
@@ -76,10 +75,10 @@ proporcion<-round(prop.table(tabla_discriminado)*100, digits=1)
 proporcion
 ```
 
-# Valoración de la amenaça que supone para su vida el conflicto en Ucrania donde 10 es "Amenaça total" i 0 "Ninguna amenaça"
+# Valoración de la amenaza que supone para su vida el conflicto en Ucrania donde 10 es "Amenaça total" i 0 "Ninguna amenaça"
 
 ```{r}
-# Valoración de la amenaça que supone el conflicto en Ucrania: Mujeres
+# Valoración de la amenaza que supone el conflicto en Ucrania: Mujeres
 
 tabla_mujeres<-table(mujeres$AMENACA_GUERRA_UCRAINA_0_10)
 proporcion<-round(prop.table(tabla_mujeres)*100, digits=1)
@@ -87,7 +86,7 @@ proporcion
 ```
 
 ```{r}
-# Valoración de la amenaça que supone el conflicto en Ucrania: Hombres
+# Valoración de la amenaza que supone el conflicto en Ucrania: Hombres
 tabla_hombres<-table(hombres$AMENACA_GUERRA_UCRAINA_0_10)
 proporcion<-round(prop.table(tabla_hombres)*100, digits=1)
 proporcion
@@ -95,31 +94,31 @@ proporcion
 
 
 ```{r}
-# Valoración de la amenaça que supone el conflicto en Ucrania: Personas discriminadas por cuestión de género
+# Valoración de la amenaza que supone el conflicto en Ucrania: Personas discriminadas por cuestión de género
 tabla_discriminado<-table(discriminado$AMENACA_GUERRA_UCRAINA_0_10)
 proporcion<-round(prop.table(tabla_discriminado)*100, digits=1)
 proporcion
 ```
 
 ```{r}
-# Valoración de la amenaça que supone el conflicto en Ucrania: Personas no discriminadas por cuestión de género
+# Valoración de la amenaza que supone el conflicto en Ucrania: Personas no discriminadas por cuestión de género
 tabla_discriminado<-table(no_discriminado$AMENACA_GUERRA_UCRAINA_0_10)
 proporcion<-round(prop.table(tabla_discriminado)*100, digits=1)
 proporcion
 ```
 
 
-# Valoración de la amenaça que supone para su vida las pandemias donde 10 es "Amenaça total" i 0 "Ninguna amenaça"
+# Valoración de la amenaza que supone para su vida las pandemias donde 10 es "Amenaça total" i 0 "Ninguna amenaça"
 
 ```{r}
-# Valoración de la amenaça que suponen las pandemias: Mujeres
+# Valoración de la amenaza que suponen las pandemias: Mujeres
 tabla_mujeres<-table(mujeres$AMENACA_EPIDEMIES_0_10)
 proporcion<-round(prop.table(tabla_mujeres)*100, digits=1)
 proporcion
 ```
 
 ```{r}
-# Valoración de la amenaça que suponen las pandemias: Hombres
+# Valoración de la amenaza que suponen las pandemias: Hombres
 tabla_hombres<-table(hombres$AMENACA_EPIDEMIES_0_10)
 proporcion<-round(prop.table(tabla_hombres)*100, digits=1)
 proporcion
@@ -127,14 +126,14 @@ proporcion
 
 
 ```{r}
-# Valoración de la amenaça que suponen las pandemias: Personas discriminadas por cuestión de género
+# Valoración de la amenaza que suponen las pandemias: Personas discriminadas por cuestión de género
 tabla_discriminado<-table(discriminado$AMENACA_EPIDEMIES_0_10)
 proporcion<-round(prop.table(tabla_discriminado)*100, digits=1)
 proporcion
 ```
 
 ```{r}
-# Valoración de la amenaça que suponen las pandemias: Personas no discriminadas por cuestión de género
+# Valoración de la amenaza que suponen las pandemias: Personas no discriminadas por cuestión de género
 tabla_discriminado<-table(no_discriminado$AMENACA_EPIDEMIES_0_10)
 proporcion<-round(prop.table(tabla_discriminado)*100, digits=1)
 proporcion
