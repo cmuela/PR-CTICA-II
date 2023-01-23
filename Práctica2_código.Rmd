@@ -173,6 +173,21 @@ proporcion
 # Intención de voto
 
 ```{r}
+# Intención de voto: Mujeres
+tabla_mujeres<-table(mujeres$INT_PARLAMENT_VOT)
+proporcion<-round(prop.table(tabla_mujeres)*100, digits=1)
+proporcion
+```
+
+```{r}
+# Intención de voto: Hombres
+tabla_hombres<-table(hombres$INT_PARLAMENT_VOT)
+proporcion<-round(prop.table(tabla_hombres)*100, digits=1)
+proporcion
+```
+
+
+```{r}
 # Intención de voto: Personas discriminadas por cuestión de género
 tabla_discriminado<-table(discriminado$INT_PARLAMENT_VOT)
 proporcion<-round(prop.table(tabla_discriminado)*100, digits=1)
